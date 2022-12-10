@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/firumon/pwnotif/issues"
   },
-  "homepage": "https://github.com/firumon/pwnotif#readme"
+  "homepage": "https://github.com/firumon/pwnotif#readme",
+  "dependencies": {
+    "web-push": "^3.5.0"
+  }
 }
