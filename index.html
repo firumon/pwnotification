@@ -21,6 +21,7 @@ function subscribe(){
     } else alert('Add applicationServerKey');
 }
 function reSubscribe(swr){
+    document.body.children['subscription'].value = 'UNSUBSCRIBING....';
     swr.pushManager.getSubscription().then(subscription => subscription.unsubscribe().then(() => doSubscribe(swr)))
 }
 function doSubscribe(swr){
