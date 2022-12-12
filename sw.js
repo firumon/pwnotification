@@ -1,6 +1,6 @@
 self.addEventListener('push',(e) => {
     console.info('PUSH EVENT ON SW');
-    console.log(e.data)
+    console.log(e.data.text())
     // e.waitUntil(
     //     self.registration.sendNotification('SW Notification',{})
     // )
