@@ -5,21 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<button onclick="subscribe()">Subscribe</button>
-
+<input placeholder="applicationServerKey" name="applicationServerKey" value="">
+<button onclick="subscribe()">Subscribe</button><br><br>
+<textarea name="subscription" style="width: 100%; height: 300px; border:#CECECE 1px solid"></textarea>
 <script>
-  addEventListener('load',async () => {
-    let sw = await navigator.serviceWorker.register('./sw.js');
-    console.log(sw)
-  })
-  async function subscribe(){
-    let sw = await navigator.serviceWorker.ready
-    let push = await sw.pushManager.subscribe({
-      userVisibleOnly:true,
-      applicationServerKey: 'BC3Hd1YTT8DIVx2dm1JGgXBU-RqTxF201RhRFEY4NgAvUUNO1bxMCw4VqmAWx9pf9tpOtIwj2lX7DT_t7m8huFM',
-    })
-    console.log(push)
-  }
+function subscribe(){
+    if(document.body.children['applicationServerKey'].value){
+        navigator.serviceWorker.register('./sw.js').then(swr => {
+            swr.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: document.body.children['applicationServerKey'].value,
+            }).then(ps => {
+                document.body.children['subscription'].value = JSON.stringify(ps.toJSON())
+            })
+        })
+    } else alert('Add applicationServerKey');
+}
 </script>
 </body>
 </html>
