@@ -1,6 +1,6 @@
 self.addEventListener('push',(e) => {
     e.waitUntil(
-        self.registration.sendNotification('Notification From PUSH',{ body:e.data.text(),icon:'https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280__340.png' })
+        self.registration.showNotification('Notification From PUSH',{ body:e.data.text(),icon:'https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280__340.png' })
     )
 })
 
