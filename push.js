@@ -1,8 +1,8 @@
 var push = require('web-push')
 
-// console.log(JSON.stringify(push.generateVAPIDKeys()))
+// return console.log(JSON.stringify(push.generateVAPIDKeys()))
 
-let vapidKeys = {"publicKey":"BDprY_5FsrUddyWTy5EzZU6t7JxQvnKs-B5east9gqUU9YDEqgXu9yJ2i5SLdNHl8SaK6xUuo8vd9gDG059ikv0","privateKey":"ED9EKRZU1WDnYYPzeDPuCDi3del2ggKUPcrfZjLaZWs"}
+let vapidKeys = {"publicKey":"BPOCgjh0gFISZBTBDIANtJB3aNCObYwwRmJQQJu0EWIcjlZGzDMDCR3E8gFiUkQwaFJGjaPs4QVchoViWISZA1Y","privateKey":"I5KL9u9FUZvyzJYisOl9peWNL4bfUb-AQLEs0SGe6js"}
 
 push.setVapidDetails('mailto:me@firumon.com', vapidKeys.publicKey, vapidKeys.privateKey)
 

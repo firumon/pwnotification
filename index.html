@@ -14,11 +14,14 @@ function subscribe(){
         navigator.serviceWorker.register('./sw.js').then(swr => {
             swr.pushManager.getSubscription().then(subscription => {
                 if(!subscription) doSubscribe(swr)
-                else if(document.body.children['subscription'].value === 'SUBSCRIPTION EXISTS..') doSubscribe(swr)
+                else if(document.body.children['subscription'].value === 'SUBSCRIPTION EXISTS..') reSubscribe(swr)
                 else document.body.children['subscription'].value = 'SUBSCRIPTION EXISTS..';
             })
         })
     } else alert('Add applicationServerKey');
+}
+function reSubscribe(swr){
+    swr.pushManager.getSubscription().then(subscription => subscription.unsubscribe().then(() => doSubscribe(swr)))
 }
 function doSubscribe(swr){
     swr.pushManager.subscribe({
