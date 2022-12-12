@@ -18,5 +18,5 @@ let sub = {
     }
 }
 
-push.sendNotification(sub, 'HAI HAO ARE YOU')
+push.sendNotification(sub, 'HAI HOW ARE YOU')
 

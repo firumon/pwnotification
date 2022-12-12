@@ -1,9 +1,7 @@
 self.addEventListener('push',(e) => {
-    console.info('PUSH EVENT ON SW');
-    console.log(e.data.text())
-    // e.waitUntil(
-    //     self.registration.sendNotification('SW Notification',{})
-    // )
+    e.waitUntil(
+        self.registration.sendNotification('Notification From PUSH',{ body:e.data.text(),icon:'https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280__340.png' })
+    )
 })
 
 var I = 0;
