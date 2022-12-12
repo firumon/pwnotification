@@ -12,14 +12,21 @@
 function subscribe(){
     if(document.body.children['applicationServerKey'].value){
         navigator.serviceWorker.register('./sw.js').then(swr => {
-            swr.pushManager.subscribe({
-                userVisibleOnly: true,
-                applicationServerKey: document.body.children['applicationServerKey'].value,
-            }).then(ps => {
-                document.body.children['subscription'].value = JSON.stringify(ps.toJSON())
+            swr.pushManager.getSubscription().then(subscription => {
+                if(!subscription) doSubscribe(swr)
+                else if(document.body.children['subscription'].value === 'SUBSCRIPTION EXISTS..') doSubscribe(swr)
+                else document.body.children['subscription'].value = 'SUBSCRIPTION EXISTS..';
             })
         })
     } else alert('Add applicationServerKey');
+}
+function doSubscribe(swr){
+    swr.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: document.body.children['applicationServerKey'].value,
+    }).then(ps => {
+        document.body.children['subscription'].value = JSON.stringify(ps.toJSON())
+    })
 }
 </script>
 </body>
