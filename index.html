@@ -7,7 +7,8 @@
 <body>
 <input placeholder="applicationServerKey" name="applicationServerKey" value="">
 <button onclick="subscribe()">Subscribe</button><br><br>
-<textarea name="subscription" style="width: 100%; height: 300px; border:#CECECE 1px solid"></textarea>
+<textarea name="subscription" style="width: 100%; height: 300px; border:#CECECE 1px solid"></textarea><br>
+<button onclick="notify()">Notify</button><br><br>
 <script>
 function subscribe(){
     if(document.body.children['applicationServerKey'].value){
@@ -31,6 +32,12 @@ function doSubscribe(swr){
     }).then(ps => {
         document.body.children['subscription'].value = JSON.stringify(ps.toJSON())
     })
+}
+function notify(){
+    navigator.serviceWorker.ready.then(swr => swr.showNotification('Notification From PAGE',{
+        body:document.body.children['subscription'].value,
+        icon:'https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280__340.png'
+    }))
 }
 </script>
 </body>
