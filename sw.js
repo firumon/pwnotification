@@ -12,4 +12,4 @@ setInterval(() => {
         setTimeout(console.clear,2000 + Math.random()*1000);
         I = 0;
     }
-},5000)
+},15000)

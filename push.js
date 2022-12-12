@@ -6,14 +6,7 @@ let vapidKeys = {"publicKey":"BPOCgjh0gFISZBTBDIANtJB3aNCObYwwRmJQQJu0EWIcjlZGzD
 
 push.setVapidDetails('mailto:me@firumon.com', vapidKeys.publicKey, vapidKeys.privateKey)
 
-let sub = {
-    "endpoint": "https://fcm.googleapis.com/fcm/send/ejCKRvxmyBQ:APA91bHGv-j0Ij44E3TKy3v8dS_CIJtdnHuA473afMbrFpxKMpQDXPBa4Q5cBIG_fuWCdrjRWnvIqlkNqQTgvb26tw8iOpiN5lG98PI5Strv__2XQxS8iZkZFNsjRQdMQFalXY2bsJxe",
-    "expirationTime": null,
-    "keys": {
-        "p256dh": "BNXp76kuruILE1u0wjDfabIuYhYA5HGBba83vnAjdwAFshAuDt33zhRzO5ngrzYJj5swJ6FMFyFD_BZv1xmJSYY",
-        "auth": "kneF9Hz4JAdyH2olZMC6Mw"
-    }
-}
+let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/c0izaOJt1F8:APA91bF2kJG2oJb8mgLMUwVncG8SZvWoF6kmKL6sGM5KJ3cPg0Y91uTApABmRhfsmB3Mu8Va4EnpbGncaMrd7RhN_5D1wIOkpq3mkaWTilb4UWqdiFMgws1tQJt8imLl5IM1vyZ97VOe","expirationTime":null,"keys":{"p256dh":"BE4khbve1ZaIdCoc47DQP1fLY7fO4attMc_mQb8Rtzdl93A0YHKVwixWaLfxCvvr6mg_M4riCWU9gCcDvZnH7Dk","auth":"SEaMP34Du7_ZZAqEgU_97A"}}
 
 push.sendNotification(sub, 'HAI HOW ARE YOU')
 
