@@ -34,10 +34,14 @@ function doSubscribe(swr){
     })
 }
 function notify(){
-    navigator.serviceWorker.ready.then(swr => swr.showNotification('Notification From PAGE',{
-        body:document.body.children['subscription'].value,
-        icon:'https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280__340.png'
-    }))
+    let txt = document.body.children['subscription'].value;
+    if(!txt) return;
+    try {
+        let jsonTxt = JSON.parse(txt)
+        navigator.serviceWorker.ready.then(swr => swr.showNotification(jsonTxt.title,jsonTxt))
+    } catch (e){
+        navigator.serviceWorker.ready.then(swr => swr.showNotification('RAW NOTIFICATION - FROM PAGE', { body:txt }))
+    }
 }
 </script>
 </body>
