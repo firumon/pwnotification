@@ -1,6 +1,6 @@
 var push = require('web-push')
 
-// return console.log(JSON.stringify(push.generateVAPIDKeys()))
+return console.log(JSON.stringify(push.generateVAPIDKeys()))
 
 let vapidKeys = {"publicKey":"BPOCgjh0gFISZBTBDIANtJB3aNCObYwwRmJQQJu0EWIcjlZGzDMDCR3E8gFiUkQwaFJGjaPs4QVchoViWISZA1Y","privateKey":"I5KL9u9FUZvyzJYisOl9peWNL4bfUb-AQLEs0SGe6js"}
 
