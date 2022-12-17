@@ -35,7 +35,11 @@ function doSubscribe(swr){
 }
 function notify(){
     let txt = document.body.children['subscription'].value;
-    if(!txt) return;
+    if(!txt) {
+		navigator.serviceWorker.getRegistration().then(swr => {
+			if(!swr) navigator.serviceWorker.register('./sw.js')
+		})
+	};
     try {
         let jsonTxt = JSON.parse(txt)
         navigator.serviceWorker.ready.then(swr => swr.showNotification(jsonTxt.title,jsonTxt))
